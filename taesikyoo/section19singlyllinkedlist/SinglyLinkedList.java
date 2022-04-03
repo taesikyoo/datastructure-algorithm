@@ -104,14 +104,22 @@ public class SinglyLinkedList extends Node {
      * Reverse a singly linked list from a given node till the end
      */
     Node reverseList(Node node) {
-        Node prev = null, curr = node, next;
+        // node를 받아서 resverse된 node를 리턴한다
+
+        // 매 이터레이션마다 아래 세 개의 노드를 이용해 reverse를 진행합니다
+        Node prev = null;
+        Node curr = node;
+        Node next;
+
+        // 현재 노드가 null이 아니면 계속 -> 이걸 <- 역방향으로 바꿔줄겁니다
         while (curr != null) {
-            next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            next = curr.next; // next에 curr.next를 미리 저장합니다, 왜냐면 curr.next를 바꿔줄꺼거든요
+            curr.next = prev; // curr.next가 prev가 됩니다 -> 방향을 <- 역방향으로 바꿨습니다
+            prev = curr; // prev에는 curr를 넣습니다, 다음 이터레이션에서는 현재값이 이전값이니까
+            curr = next; // 마지막으로 다음 이터레이션으로 넘어가기 위해 curr를 next로 설정해줍니다
         }
-        node = prev;
+
+        node = prev; // 노드가 1개짜리 링크드리스트일 때 엣지케이스 커버
         return node;
     }
 

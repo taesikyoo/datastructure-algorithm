@@ -1,5 +1,7 @@
 package section19singlyllinkedlist;
 
+import java.util.List;
+
 public class AddTwoNumbers {
 
     public static void main(String[] args) {
@@ -9,18 +11,19 @@ public class AddTwoNumbers {
         n1.next = n2;
         n2.next = n3;
 
-        ListNode n4 = new ListNode(2);
-        ListNode n5 = new ListNode(4);
-        ListNode n6 = new ListNode(3);
+        ListNode n4 = new ListNode(5);
+        ListNode n5 = new ListNode(6);
+        ListNode n6 = new ListNode(4);
+        ListNode n7 = new ListNode(1);
         n4.next = n5;
         n5.next = n6;
+        n6.next = n7;
 
         ListNode result = addTwoNumbers(n1, n4);
 
     }
 
     public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-
         ListNode dummyHead = new ListNode(0);
         ListNode p = l1;
         ListNode q = l2;
